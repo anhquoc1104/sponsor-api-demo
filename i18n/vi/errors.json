@@ -1,0 +1,44 @@
+{
+  "existed": "{attribute} đã tồn tại",
+  "not_exists": "{attribute} không tồn tại",
+  "auth": {
+    "wrong_password": "Tên đăng nhập hoặc mật khẩu không chính xác!",
+    "not_allowed": "Tài khoản không có quyền truy cập hệ thống!",
+    "update_same_password": "Mật khẩu trùng với mật khẩu đã được thay dổi {attribute}, Vui lòng cập nhật mật khẩu mới",
+    "auth.expired_verify_email_session": "Session code đã hết hạn hoặc không tồn tại!"
+  },
+  "system": {
+    "error": "Đã xảy ra lỗi của hệ thống. Vui lòng liên hệ admin!."
+  },
+  "status_code": {
+    "401": "Thông tin xác thực không hợp lệ!",
+    "403": "Truy cập bị từ chối!"
+  },
+  "user": {
+    "no_permissions": "Tài khoản chưa có nhóm quyền admin!",
+    "same_email": "Email đã tồn tại!",
+    "deactivated": "Tài khoản ngưng hoạt động! Vui lòng liên hệ admin!"
+  },
+  "group": {
+    "not_match_user": "Nhóm {attribute} không thuộc loại tài khoản!"
+  },
+  "sponsor": {
+    "expired": "Bài sponsor ở trạng thái hết hạn, không thể cập nhật!",
+    "end_date": {
+      "before_now": "Thời điểm kết thúc diễn ra phải lớn hơn hiện tại!",
+      "after_start_date": "Thời điểm kết thúc diễn ra phải lớn hơn thời điểm bắt đầu diễn ra!"
+    },
+    "expiration_date": {
+      "before_end_date": "Thời điểm hết hạn tài trợ phải lớn hoặc bằng thời điểm kết thúc diễn ra!",
+      "after_start_date": "Thời điểm hết hạn tài trợ phải lớn hơn thời điểm bắt đầu diễn ra!"
+    },
+    "display_status": {
+      "not_draft": "Bài sponsor không thể chuyển trạng thái DRAFT!",
+      "invalid": "Chuyển đổi trạng thái bài sponsor không hợp lệ"
+    },
+    "publisher": {
+      "not_allowed_change_status": "Publisher không được phép chuyển trạng thái khi bài sponsor đã được duyệt!",
+      "not_allowed_changes": "Publisher không được phép thay đổi nội dụng ngoài trạng thái sản xuất & trạng thái gói tài trợ khi trạng thái hiển thị là {attribute}"
+    }
+  }
+}

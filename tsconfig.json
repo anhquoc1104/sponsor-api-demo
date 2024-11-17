@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "declaration": true,
+      "moduleResolution": "Node10",
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "target": "es2021",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "incremental": true,
+      "skipLibCheck": true,
+      "paths": {
+        "@app/common": [
+          "libs/common/src"
+        ],
+        "@app/common/*": [
+          "libs/common/src/*"
+        ],
+        "@app/shared": [
+          "libs/shared/src"
+        ],
+        "@app/shared/*": [
+          "libs/shared/src/*"
+        ],
+        "@app/schemas": [
+          "libs/schemas/src"
+        ],
+        "@app/schemas/*": [
+          "libs/schemas/src/*"
+        ],
+        "@app/modules": [
+          "libs/modules/src"
+        ],
+        "@app/modules/*": [
+          "libs/modules/src/*"
+        ],
+        "@app/monitoring": [
+          "libs/monitoring/src"
+        ],
+        "@app/monitoring/*": [
+          "libs/monitoring/src/*"
+        ],
+        "@app/cloud-config": [
+          "libs/cloud-config/src"
+        ],
+        "@app/cloud-config/*": [
+          "libs/cloud-config/src/*"
+        ]
+      }
+    }
+  }

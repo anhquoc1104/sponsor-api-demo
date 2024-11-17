@@ -1,0 +1,14 @@
+{
+    "USER": "Người dùng",
+    "SETTING": "Cấu hình",
+    "MASTER_DATA": "Dữ liệu chung",
+    "SPONSOR": "Chương trình",
+    "ATTRIBUTE_CATEGORY": "Thể loại",
+    "ATTRIBUTE_CAST": "Người nổi tiếng",
+    "ATTRIBUTE_CAST_PROFESSION": "Thể loại người nổi tiếng",
+    "ATTRIBUTE_PLATFORM": "Nền tảng",
+    "ATTRIBUTE_BUDGET_RANGE": "Budget Range",
+    "ATTRIBUTE_HASHTAG": "Tags",
+    "ATTRIBUTE_SPONSORSHIP_FORM": "Hình thức tài trợ",
+    "ATTRIBUTE_SPONSORSHIP_BENEFIT": "Nhóm quyền lợi tài trợ"
+}

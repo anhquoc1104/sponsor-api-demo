@@ -1,0 +1,53 @@
+<!--run file in local-->
+<!--cd folder-->
+<!--http-server-->
+<!--https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+      const socketOptions = {
+        transportOptions: {
+          polling: {
+            extraHeaders: {
+              Authorization: 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyUWJScmpyV3k4NnB1Ry1jTWthMU9qOVRxSEVrbDNGWHlnd2tPbndHTHpFIn0.eyJleHAiOjE2MjgzNTc4MjIsImlhdCI6MTYyODMyMTgyMiwianRpIjoiNTk2ZTA5YTgtYzhhMy00MThhLTljOWYtMTRjODhkYzQ1NWM1IiwiaXNzIjoiaHR0cDovLzEwLjExLjMwLjQ1OjgwODAvYXV0aC9yZWFsbXMvRklOVklFVCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiYjBmZWYyMi02MTI5LTQzNDUtYWM5Ny0xN2ViYjIyNDU3NGEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzYWxlc21hbi1zeXN0ZW0iLCJzZXNzaW9uX3N0YXRlIjoiNWJhNzAxNGMtMjM4Ni00MGE3LTk5OWYtMmQ3NzQ5Y2U0NzRhIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL3NhbGVtYW52Mi5maW52aWV0LmNvbS52biJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InNhbGVzbWFuLXN5c3RlbSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiIsInNhbGVzbWFuX3NhbGUiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicm9sZXMgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iLCJzYWxlc21hbl9zYWxlIl0sIm5hbWUiOiJWaWV0IC0gU2FsZSIsInByZWZlcnJlZF91c2VybmFtZSI6IjA5MDc3NDMzNTUiLCJnaXZlbl9uYW1lIjoiVmlldCAtIFNhbGUiLCJlbWFpbCI6IjA5MDc3NDMzNTVAZmludmlldC5jb20udm4ifQ.GQOSwzdJHkrM-0poa1AhYeSXq583zljjjWn-lxFDclY2ZITpGwz0TCLODgIc7ahF8f-_TCc_AQOpZWvY9C8W7VOchKt01aJ_ns6U4MKF_PK3LbkNYOaJCuzUfRkF6HlFGE20a9Th7TVtRKuswfLkQR1T6aY1rH7_0Ni--ng0UF5eWhASFddyYPGDIHZDjIWGhp0syIFA0cLLvY3OXsDRHfhsIlKi8-4aUHgo8LueOvMNBrw0gbnz8llbBv46JaN1FNkHzrIKJmRcnNQIHESUQKQBNwikjyYYypaPiXiSSQfP4jnM7owkfpR9ubJ0prYsyP6BUz0kZnsO2O2pdhKL4A',
+            },
+          }
+        }
+      };
+      const socket = io('http://localhost:3330', socketOptions);
+      socket.on('connect', function () {
+        console.log('Connected');
+        socket.emit('ticket-chat', { room_id: "610ea2ab4f3a1e13b2563a7e", cmd_type: "JOIN" })
+        socket.emit('ticket-chat', {
+          room_id: "610ea2ab4f3a1e13b2563a7e",
+          user: "6035c98834f75136789e33a7",
+          cmd_type: "MESSAGE", message: { value: 'test 123' } });
+
+        socket.emit('chat-room', {
+          room_id: "610ea2ab4f3a1e13b2563a7e",
+          cmd_type: "LEAVE"
+        });
+
+      });
+      socket.on('ticket-chat', response =>
+        console.log('data:', response),
+      );
+      socket.on('events', function (data) {
+        console.log('event', data);
+      });
+      socket.on('exception', function (data) {
+        console.log('event', data);
+      });
+      socket.on('disconnect', function () {
+        console.log('Disconnected');
+      });
+    </script>
+</head>
+
+<body></body>
+
+</html>

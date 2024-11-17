@@ -1,0 +1,75 @@
+<!--run file in local-->
+<!--cd folder-->
+<!--http-server-->
+<!--https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+      const socketOptions = {
+        transportOptions: {
+          polling: {
+            extraHeaders: {
+              Authorization: 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyUWJScmpyV3k4NnB1Ry1jTWthMU9qOVRxSEVrbDNGWHlnd2tPbndHTHpFIn0.eyJleHAiOjE2MjU3NjMwNDMsImlhdCI6MTYyNTcyNzA0MywianRpIjoiODY0MzMzMTUtZmM4ZC00ZjhlLTk2MWEtZjRjY2MyZWFiODM5IiwiaXNzIjoiaHR0cDovLzEwLjExLjMwLjQ1OjgwODAvYXV0aC9yZWFsbXMvRklOVklFVCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiYjBmZWYyMi02MTI5LTQzNDUtYWM5Ny0xN2ViYjIyNDU3NGEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzYWxlc21hbi1zeXN0ZW0iLCJzZXNzaW9uX3N0YXRlIjoiYzVjZjdjNGItYTQ0My00MzZkLWE2NmMtMTBjNDQyOTNjZDdkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL3NhbGVtYW52Mi5maW52aWV0LmNvbS52biJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InNhbGVzbWFuLXN5c3RlbSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiIsInNhbGVzbWFuX3NhbGUiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicm9sZXMgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iLCJzYWxlc21hbl9zYWxlIl0sIm5hbWUiOiJWaWV0IC0gU2FsZSIsInByZWZlcnJlZF91c2VybmFtZSI6IjA5MDc3NDMzNTUiLCJnaXZlbl9uYW1lIjoiVmlldCAtIFNhbGUiLCJlbWFpbCI6IjA5MDc3NDMzNTVAZmludmlldC5jb20udm4ifQ.jeMnGsOUrL7tHJILvmtsV1qmJF8-qFS0VVMZOp20ktSDrxOJM_mFODUbecFpTzxmyOlarIN8ewK9c_tpPHVCpSRME2KQXO9jpJOhN14v6rhBj49zqfbbu3sYOGsAoM7VH5sTkGhQ2uvcAvsoqsnnWI--yrd9vOpbhqA9cpTAWM-8nh3njEImfxpWDcA5adbKGE6arzZeIw7sYJCMNN4_l7bYXWBLIpLmZhErItPycze2egLhbAXWUbSZkRgOQnUgB1j_vBpDCbptiQqjYsihareKHi9r-consOSGlLPnLFRIluDKJiLghpqQnQOBQ82MA_H6VuyFnzDiOr1o6E7poQ',
+            },
+          },
+        },
+      };
+      const socket = io('http://localhost:3330', socketOptions);
+      socket.on('connect', function() {
+        socket.emit('map-location', {
+          room_id: 'MAP-LOCATION',
+          cmd_type: 'JOIN',
+        });
+
+        // socket.emit('map-location', {
+        //   room_id: 'MAP-LOCATION',
+        //   map_location: {
+        //     geometry: {
+        //       "type" : "Point",
+        //       "coordinates" : [
+        //         106.697847,
+        //         11.9069468
+        //       ]
+        //     }
+        //   },
+        //   cmd_type: 'SAVE_LOCATION',
+        // });
+
+
+        socket.emit('map-location', {
+          room_id: 'MAP-LOCATION',
+          map_location: {
+            geometry: {
+              "type" : "Point",
+              "coordinates" : [
+                106.697811,
+                11.9069433
+              ]
+            }
+          },
+          cmd_type: 'SAVE_LOCATION',
+        });
+
+      });
+      socket.on('map-location', response =>
+        console.log('data:', response),
+      );
+      socket.on('events', function(data) {
+        console.log('event', data);
+      });
+      socket.on('exception', function(data) {
+        console.log('event', data);
+      });
+      socket.on('disconnect', function() {
+        console.log('Disconnected');
+      });
+    </script>
+</head>
+
+<body></body>
+
+</html>

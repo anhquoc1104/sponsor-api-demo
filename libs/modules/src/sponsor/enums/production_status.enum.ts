@@ -1,0 +1,7 @@
+export enum ProductionStatus {
+  PLANNING = 'PLANNING',
+  PRODUCING = 'PRODUCING',
+  ON_GOING = 'ON_GOING',
+  POST_PRODUCTION = 'POST_PRODUCTION',
+  PRODUCED = 'PRODUCED',
+}

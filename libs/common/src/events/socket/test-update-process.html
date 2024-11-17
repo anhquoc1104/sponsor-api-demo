@@ -1,0 +1,49 @@
+<!--run file in local-->
+<!--cd folder-->
+<!--http-server-->
+<!--https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+      const socketOptions = {
+        transportOptions: {
+          polling: {
+            extraHeaders: {
+              Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyUWJScmpyV3k4NnB1Ry1jTWthMU9qOVRxSEVrbDNGWHlnd2tPbndHTHpFIn0.eyJleHAiOjE2MTQ3NzE0ODIsImlhdCI6MTYxNDczNTQ4MiwianRpIjoiMWQ5ZDIyNWUtYzA3Yi00MTY0LTk1MzktYzJlNTlmMTE1MjViIiwiaXNzIjoiaHR0cDovLzEwLjExLjMwLjQ1OjgwODAvYXV0aC9yZWFsbXMvRklOVklFVCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiIzZDA5NGU3Ni1jODZiLTQ4YjgtOTRkYS0yMzk1ZGUzZDcxMzgiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzYWxlc21hbi1zeXN0ZW0iLCJzZXNzaW9uX3N0YXRlIjoiNGY1MTdjMWUtNDU0NC00ZmRmLTk0ZDAtN2I2Mjc3ODg4ZmQ3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL3NhbGVtYW52Mi5maW52aWV0LmNvbS52biJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InNhbGVzbWFuLXN5c3RlbSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiIsInNhbGVzbWFuX3NhbGUiLCJzYWxlc21hbl9zdXBlcnZpc29yIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiXX19LCJzY29wZSI6InJvbGVzIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIiwic2FsZXNtYW5fc2FsZSIsInNhbGVzbWFuX3N1cGVydmlzb3IiXSwibmFtZSI6IlZpZXQgLSBTdXBwZXJ2aXNvciIsInByZWZlcnJlZF91c2VybmFtZSI6IjA5MDc3NDMzNTQiLCJnaXZlbl9uYW1lIjoiVmlldCAtIFN1cHBlcnZpc29yIiwiZW1haWwiOiIwOTA3NzQzMzU0QGZpbnZpZXQuY29tLnZuIn0.gvVTjkrtZVF0gvVKjqd5-KQC8pj97HtqTNVmPJHjE30pagCquVIk9pdPjRiPx7SZPXUQzFuHQ2TAi4ay2an9kEsqRww0MmOLrkNU-4x-hA7wqYYwAoeX4NafU8FqgzzabCOIk8S2Wi02M1Dz3FbJG7BBozF4OCj-ulbyDuiTb3DCALG-D2_-8tvWfKxOSKuUIu8tCq1W_5RhDvWKFzI3OfmXLeE2XHuFbv4IF-GxCm5HRgbLjMg9_x9qNWsSuWCd9e7bxfFnvVSZ7tsF4JUUxo_0tiB-U6aAbujkAT6G3u35zAIvsfw_oqAkDzcpIp8mkhSaJn8obpTVa0hfVloD9Q',
+            }
+          }
+        }
+      };
+      const socket = io('http://localhost:3330', socketOptions);
+      socket.on('connect', function () {
+        console.log('Connected');
+        socket.emit('process-update', { room_id: "OFF_USER_20210620_100211", cmd_type: "JOIN" })
+
+        // socket.emit('chat-room', {
+        //   room_id: "603de3195768932b88f879ce",
+        //   cmd_type: "LEAVE"
+        // });
+
+      });
+      socket.on('process-update', response =>
+        console.log('data:', response),
+      );
+      socket.on('events', function (data) {
+        console.log('event', data);
+      });
+      socket.on('exception', function (data) {
+        console.log('event', data);
+      });
+      socket.on('disconnect', function () {
+        console.log('Disconnected');
+      });
+    </script>
+</head>
+
+<body></body>
+
+</html>

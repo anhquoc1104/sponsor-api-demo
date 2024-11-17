@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #e1e1e1;
+      border-radius: 5px;
+    }
+    .header {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #e1e1e1;
+    }
+    .header img {
+      max-width: 200px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="cid:logo_the_sponsor" alt="The Sponsor Logo">
+      <h2>Khách hàng liên hệ qua trang web</h2>
+    </div>
+    <div class="content">
+      <p>Xin chào Admin,</p>
+      <p>Khách hàng với email <strong>{{customer_email}}</strong> muốn liên hệ với công ty.</p>
+      <p>Vui lòng phản hồi lại sớm nhất có thể.</p>
+      <p>Trân trọng,<br/>Hệ thống tự động The Sponsor!</p>
+    </div>
+    <div class="footer">
+      <!-- <p>Email này được gửi tự động từ hệ thống.</p> -->
+    </div>
+  </div>
+</body>
+</html>
